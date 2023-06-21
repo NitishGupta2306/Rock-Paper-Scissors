@@ -1,6 +1,9 @@
 const PLAYER = 1
 const COMPUTER = 2
 
+let player_wins = 0
+let computer_wins = 0
+
 function getCompChoice() {
    let rand_pick = Math.floor(Math.random() * 3);
    if (rand_pick == 0){
@@ -51,10 +54,8 @@ function winCondition(player,computer) {
 }
 
 function playRound() {
-
-    let isOver = 1
-
-    while(isOver){
+    // Best of 5
+    for(let i = 0; i < 5; i++){
         //Getting all inputs
         let player = getPlayerChoice()
         let computer = getCompChoice()
@@ -64,7 +65,7 @@ function playRound() {
 
         //Checking Draw Condition
         if (player == computer){
-            console.log("Draw")
+            console.log("Draw Game")
             continue
         }
 
@@ -72,21 +73,33 @@ function playRound() {
         winner = winCondition(player,computer)
 
         if(winner == PLAYER){
-            console.log("Player Wins")
+            player_wins += 1
         }
         else if (winner == COMPUTER) {
-            console.log("Computer Wins")
+            computer_wins += 1
         }
-        isOver = 0
     }
 
+    if(player_wins > computer_wins){
+        console.log("Player Wins.")
+    }
+    else if(player_wins < computer_wins){
+        console.log("Computer Wins.")
+    }
+    else{
+        console.log("Game is a Draw.")
+    }
+
+    // Resetting Global Variables
+    player_wins = 0
+    computer_wins = 0
 }
 
 let isCont = 1
 
-while(isCont = 1) {
+while(isCont == 1) {
     playRound()
-    isCont = prompt("Would you like to continue?/n Press 1 to continue or any key to exit!")
+    isCont = prompt("Would you like to play another game?\n Press 1 to continue or any key to exit!")
 }
 
 

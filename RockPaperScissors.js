@@ -95,11 +95,13 @@ function playRound() {
     computer_wins = 0
 }
 
+/*
 let isCont = 1
 
 while(isCont == 1) {
     playRound()
     isCont = prompt("Would you like to play another game?\n Press 1 to continue or any key to exit!")
 }
+*/
 
 

@@ -1,2 +1,5 @@
 # Rock-Paper-Scissors
-Written in JS
+
+### V1.1
+- Written in JS.
+- Simple Rock-Paper-Scissors run on the console.

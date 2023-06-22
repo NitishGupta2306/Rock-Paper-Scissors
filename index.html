@@ -8,19 +8,24 @@
     </head>
 
     <body>
-    <script src="RockPaperScissors.js"></script>
-
-    <h1> Rock-Paper-Scissors </h1> 
+    <p>
+        <h1> Rock-Paper-Scissors </h1> 
+        <h3> Best of 5! Game will auto reset. </h3>
+    </p>
+    
     <div class = choices>
-        <button class="btn" id="rock"> <strong>ROCK</strong> <img src="img/rock.png" alt="rock image"/></button>
-        <button class="btn" id="paper"> <strong>PAPER</strong> <img src="img/paper.png" alt="paper image"/></button>
-        <button class="btn" id="scissors"> <strong>SCISSOR</strong> <img src="img/scissor.png" alt="scissors image"/></button>
+        <button class="btn" id="r"> <strong>ROCK</strong> <img src="img/rock.png" alt="rock image"/></button>
+        <button class="btn" id="p"> <strong>PAPER</strong> <img src="img/paper.png" alt="paper image"/></button>
+        <button class="btn" id="s"> <strong>SCISSOR</strong> <img src="img/scissor.png" alt="scissors image"/></button>
     </div>
 
     <div class = scores>
-        <p><strong> Player Score: </strong> </p>
-        <p><strong>  Computer Score: </strong></p>
+        <p class = "pScore"> Player Score: </p>
+        <p class = "cScore"> Computer Score: </p>
+        <p class = "winner"> Who Shall Win? </p>
     </div>
+
+    <script src="RockPaperScissors.js"></script>
 
     </body>
 </html>

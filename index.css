@@ -17,6 +17,12 @@ h1{
     color: black;
     text-align: center;
     font-size: 70px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    color: grey;
+    text-align: center;
 }
 
 .btn{
@@ -26,6 +32,7 @@ h1{
 
     /* For margins of button */
     margin: 70px;
+    margin-top: 5px;
     width: 250px;
     height: 200px;
 
@@ -47,3 +54,6 @@ img{
     text-align: left;
 }
 
+.scores{
+    font-weight: bold;
+}

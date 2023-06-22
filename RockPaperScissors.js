@@ -1,107 +1,100 @@
 const PLAYER = 1
 const COMPUTER = 2
 
-let player_wins = 0
-let computer_wins = 0
+let playerWins = 0
+let computerWins = 0
+let reset = 0
 
+// Setting up global variable for winner
+const winner = document.querySelector(".winner")
+
+// Setting up Score printing points, and defaulting to 0
+const playerScore = document.querySelector(".pScore");
+playerScore.textContent = `Player Score: ${playerWins}`;
+
+// Setting up Score printing points, and defaulting to 0
+const computerScore = document.querySelector(".cScore");
+computerScore.textContent = `Computer Score: ${computerWins}`;
+
+// Button Logic
+const choices = document.querySelectorAll('.btn');
+
+choices.forEach(choice => choice.addEventListener('click',()=>{
+    let playerChoice = choice.id;
+    let compChoice = getCompChoice()
+    playRound(playerChoice, compChoice);
+}))
+
+// Random pick by computer
 function getCompChoice() {
-   let rand_pick = Math.floor(Math.random() * 3);
-   if (rand_pick == 0){
-        return "R"
-   }
-   else if (rand_pick == 1){
-        return "P"
-   }
-   else {
-        return "S"
-   }
+    let rand_pick = Math.floor(Math.random() * 3);
+    if (rand_pick == 0){
+         return "r"
+    }
+    else if (rand_pick == 1){
+         return "p"
+    }
+    else {
+         return "s"
+    }
 }
 
-function getPlayerChoice() {
-    let player_choice_var = prompt("Rock[R]-Paper[P]-Scissors[S]?")
-    return player_choice_var
-}
-
+// Can be set up as an array of win conditions for optimization.
 function winCondition(player,computer) {
     // All possible win conditions comp
     if (player == "r" && computer == "p" ){
-        console.log("Player = Rock | Computer = Paper")
         return COMPUTER
     }
     if (player == "p" && computer == "s" ){
-        console.log("Player = Paper | Computer = Scissors")
         return COMPUTER
     }
     if (player == "s" && computer == "r" ){
-        console.log("Player = Scissors | Computer = Rock")
         return COMPUTER
     }
 
     // All possible win conditions player
     if (player == "p" && computer == "r" ){
-        console.log("Player = Paper | Computer = Rock")
         return PLAYER
     }
     if (player == "s" && computer == "p" ){
-        console.log("Player = Scissors | Computer = Paper")
         return PLAYER
     }
     if (player == "r" && computer == "s" ){
-        console.log("Player = Rock | Computer = Scissors")
         return PLAYER
     }
 
 }
 
-function playRound() {
-    // Best of 5
-    for(let i = 0; i < 5; i++){
-        //Getting all inputs
-        let player = getPlayerChoice()
-        let computer = getCompChoice()
+function playRound(player, computer) {
+    //Checking Draw Condition
+    if(reset == 1) {
+        reset = 0
+        winner.textContent = `Who Shall Win?`
+    }
+    
+    //Getting win val
+    gamePoint = winCondition(player,computer)
 
-        player = player.toLowerCase()
-        computer = computer.toLowerCase()
-
-        //Checking Draw Condition
-        if (player == computer){
-            console.log("Draw Game")
-            continue
-        }
-
-        //Getting win val
-        winner = winCondition(player,computer)
-
-        if(winner == PLAYER){
-            player_wins += 1
-        }
-        else if (winner == COMPUTER) {
-            computer_wins += 1
-        }
+    if(gamePoint == PLAYER){
+        playerWins += 1
+    }
+    else if (gamePoint == COMPUTER) {
+        computerWins += 1
     }
 
-    if(player_wins > computer_wins){
-        console.log("Player Wins.")
-    }
-    else if(player_wins < computer_wins){
-        console.log("Computer Wins.")
-    }
-    else{
-        console.log("Game is a Draw.")
-    }
+    playerScore.textContent = `Player Score: ${playerWins}`;
+    computerScore.textContent = `Computer Score: ${computerWins}`;
 
-    // Resetting Global Variables
-    player_wins = 0
-    computer_wins = 0
+    if(playerWins == 5){
+        winner.textContent = `Player Wins!`
+        playerWins = 0
+        computerWins = 0
+        reset = 1
+    }
+    else if (computerWins == 5){
+        winner.textContent = `Computer Wins!`
+        playerWins = 0
+        computerWins = 0
+        reset = 1
+    }
 }
-
-/*
-let isCont = 1
-
-while(isCont == 1) {
-    playRound()
-    isCont = prompt("Would you like to play another game?\n Press 1 to continue or any key to exit!")
-}
-*/
-
-

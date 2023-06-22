@@ -1,0 +1,59 @@
+
+html{
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url("./img/BG.png");
+    background-size: cover; 
+}
+
+body{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    color: black;
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    color: grey;
+    text-align: center;
+}
+
+.btn{
+    /* For button Text */
+    font-size: 30px;
+    text-align: center;
+
+    /* For margins of button */
+    margin: 70px;
+    margin-top: 5px;
+    width: 250px;
+    height: 200px;
+
+    /* To remove the background box behind buttons */
+    outline: none;
+    background: none;
+    border: none;
+}
+
+img{
+    width: 260px;
+    height: 260px;
+
+}
+
+.scores{
+    margin: 30px;
+    font-size: 40px;
+    text-align: left;
+}
+
+.scores{
+    font-weight: bold;
+}

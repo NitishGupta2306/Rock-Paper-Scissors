@@ -1,6 +1,7 @@
 # Rock-Paper-Scissors
 
 ### V2
+- Click here for live link (https://nitishgupta2306.github.io/Rock-Paper-Scissors/)
 - Written in JS.
 - Simple Rock-Paper-Scissors with UI.
 
